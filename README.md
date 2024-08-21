@@ -60,7 +60,7 @@ For the sake of easy access, this repository has the compiled output, containing
 ```bash
 npx hardhat ignition deploy ./ignition/modules/RegistrationContract.ts --network nil
 ```
-- Now lets deploy the `Voting Contract`, if you would like to change the candidateIds then you can change it in the `candidateIds` array(the contract currently accepts only `uint256` for candidateIds) of thr file `./niljs/deployVotingContract.ts`. To deploy the `VotingContract` using `niljs`, run the following command:
+- Now lets deploy the `Voting Contract`, if you would like to change the candidateIds then you can change it in the `candidateIds` array(the contract currently accepts only `uint256` for candidateIds) of the file `./niljs/deployVotingContract.ts`. To deploy the `VotingContract` using `niljs`, run the following command:
 ```bash
 bun run ./niljs/deployVotingContract.ts
 ```
@@ -109,6 +109,6 @@ nil wallet send-tokens <CONTRACT_ADDRESS> <AMOUNT>
 The above command expects you already have your CLI wallet setup. If not, please check the docs [here](https://docs.nil.foundation/nil/tools/nil-cli/usage/)(The same one as the one in prerequisites).
 
 ## Conclusion
-Congrats! You have deployed your own voting dApp on the devnet and made your foorptints onto the zkSharding ecosystem. You can further extend this dApp by adding more features as you like. You can also contribute to the existing codebase by raising a PR to this repository.Would love to see your contributions.
+Congrats! You have deployed your own voting dApp on the devnet and made your footprints onto the zkSharding ecosystem. You can further extend this dApp by adding more features as you like. You can also contribute to the existing codebase by raising a PR to this repository.Would love to see your contributions.
 
-As I beleive, the world's problems are not solveable by a single distributed compouter, hence long live sharding and asynchronously programmed contracts!
+As I beleive, the world's problems are not solveable by a single distributed computer and synchronicity, hence long live sharding and asynchronously programmed smart contracts!
