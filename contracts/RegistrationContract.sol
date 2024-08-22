@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./Nil.sol";
 
-contract RegistarationContract is NilBase {
+contract RegistrationContract is NilBase {
     mapping(address => bool) public voters;
 
     address[] public votersList;

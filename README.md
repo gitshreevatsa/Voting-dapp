@@ -39,7 +39,7 @@ git clone https://github.com/gitshreevatsa/Voting-dapp.git
 ```bash
 npm install
 ```
-- Create a `.env` file in the root directory and add the following variables:
+- Create a `.env` file in the root directory and add the following variables(you would find them in the CLI at `nil config show`):
 ```bash
 NIL_RPC_ENDPOINT=<NIL_RPC_ENDPOINT>
 PRIVATE_KEY=<PRIVATE_KEY>
@@ -60,18 +60,18 @@ For the sake of easy access, this repository has the compiled output, containing
 ```bash
 npx hardhat ignition deploy ./ignition/modules/RegistrationContract.ts --network nil
 ```
-- Now lets deploy the `Voting Contract`, if you would like to change the candidateIds then you can change it in the `candidateIds` array(the contract currently accepts only `uint256` for candidateIds) of the file `./niljs/deployVotingContract.ts`. To deploy the `VotingContract` using `niljs`, run the following command:
+- Now lets deploy the `Voting Contract`, if you would like to change the candidateIds then you can change it in the `candidateIds` array(the contract currently accepts only `uint256` for candidateIds) of the file `./niljs/deployVotingContract.ts`. Also dn't forget to add your `RPC URL` in the placeholder of the same file. To deploy the `VotingContract` using `niljs`, then run the following command:
 ```bash
 bun run ./niljs/deployVotingContract.ts
 ```
 
 ## Interaction
-Now as the contracts are deployed, we need to register a voter. To register a voter, run the following command:
+Now as the contracts are deployed, we need to register a voter. Before that, add your `RPC` as well as the `Registration Contract` address in the respective placeholders of the file `niljs/callRegistrationContract.ts`. Then register a voter, run the following command:
 ```bash
 bun run ./niljs/callRegistrationContract.ts
 ```
 
-After registering the voter, take the `private key` and `wallet address` that is logged in the console and add it in the respective placeholders of the `/niljs/callVotingContract.ts` file. We do this because, we want the registered voter of  the previous step to be calling the `castVote` function for casting a vote. If you want to change the candidateId you can do so by changing the `args` parameter inside the variable `sendingVote`.
+After registering the voter, take the `private key` and `wallet address` that is logged in the console and add it in the respective placeholders of the `/niljs/callVotingContract.ts` file. We do this because, we want the registered voter of  the previous step to be calling the `castVote` function for casting a vote. If you want to change the candidateId you can do so by changing the `args` parameter inside the variable `sendingVote`. Attest the `private key`, `wallet address`, `RPC URL` and the `voting contract` address as specified in the placeholders of the file.
 
 Now to cast a vote, run the following command:
 ```bash
@@ -81,7 +81,7 @@ bun run ./niljs/callVotingContract.ts
 
 Finally to see the number of votes each candidate has recieved, we run the hardhat task:
 ```bash
-npx hardhat results --contract <CONTRACT ADDRESS> --candidateid <CANDIDATE ID> --network nil
+npx hardhat results --contract <VOTING CONTRACT ADDRESS> --candidateid <CANDIDATE ID> --network nil
 ```
 This should fetch you a result of type(1 if you have voted for the candidate, 0 if you have not voted for the candidate):
 ```bash

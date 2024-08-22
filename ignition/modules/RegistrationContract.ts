@@ -1,8 +1,9 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
-// biome-ignore lint: type is not exported
-module.exports = buildModule("RegistarationContractModule", (m: any) => {
-  const RegistrationContract = m.contract("RegistarationContract");
+module.exports = buildModule("RegistrationContractModule", (m) => {
+  const RegistrationContract = m.contract("RegistrationContract", [], {
+    value : 10_000_000n
+  });
 
   return { RegistrationContract };
 });
